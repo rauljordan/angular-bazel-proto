@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { LandingModule } from './modules/landing/landing.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +13,6 @@ import { LandingModule } from './modules/landing/landing.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    LandingModule,
   ],
   bootstrap: [AppComponent]
 })
