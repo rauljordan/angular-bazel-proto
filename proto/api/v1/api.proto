@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package example.api;
+
+// Example API service.
+service API {
+    // Create a new user account with the passed in information.
+    rpc SignupUser(SignupRequest) returns (SignupResponse);
+}
+
+message SignupRequest {
+    // A user's email account.
+    string email = 1;
+
+    // A user's password.
+    string password = 2;
+}
+
+message SignupResponse {
+    // The authentication token for an authorized user.
+    bytes token = 1;
+}

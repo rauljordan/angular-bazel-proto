@@ -1,0 +1,28 @@
+##############################################################################
+# Common
+##############################################################################
+load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@npm_bazel_labs//:index.bzl", "ts_proto_library")
+load("@npm_bazel_typescript//:index.bzl", "ts_library")
+
+proto_library(
+    name = "proto",
+    srcs = [
+        "api.proto",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+ts_proto_library(
+    name = "ts_proto",
+    deps = [":proto"],
+)
+
+ts_library(
+    name = "v1",
+    srcs = glob(["**/*.ts"]),
+    module_name = "@proto/api/v1",
+    tsconfig = "//frontend:tsconfig.json",
+    visibility = ["//visibility:public"],
+    deps = [":ts_proto"],
+)
